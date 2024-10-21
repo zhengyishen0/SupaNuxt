@@ -1,6 +1,12 @@
 <template>
   <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
+    hi
+    <div>
+      <Button>Click me</Button>
+    </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { Button } from '@/components/ui/button'
+</script>

@@ -2,13 +2,13 @@
 
 ## Start the project
 ```bash
-bunx nuxi@latest init <project-name>
-bun install -D typescript
+npx nuxi@latest init <project-name>
+npm install -D typescript
 ```
 
-## Install Supabase
+## Install Supabase 
 ```bash
-bunx nuxi@latest module add supabase
+npx nuxi@latest module add supabase
 ```
 
 Create `.env`
@@ -18,8 +18,13 @@ SUPABASE_KEY="<your_key>"
 ```
 
 ## Install Tailwind & Shadcn
+```bash
+npx nuxi@latest module add @nuxtjs/tailwindcss
+npx nuxi@latest module add shadcn-nuxt
+npx shadcn-vue@latest init
 ```
-bunx nuxi@latest module add @nuxtjs/tailwindcss
-bunx nuxi@latest module add shadcn-nuxt
-bunx shadcn-vue@latest init
+
+## Add Shadcn Components
+```bash
+npx shadcn-vue@latest add button
 ```
