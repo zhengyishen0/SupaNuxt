@@ -6,5 +6,5 @@
       <Button>Go back home</Button>
     </NuxtLink>
   </div>
+  <Button @click="handleSignOut">Sign Out</Button>
 </template>
-
