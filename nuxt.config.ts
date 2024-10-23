@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/supabase',
     '@nuxtjs/tailwindcss',
-    'shadcn-nuxt'
+    'shadcn-nuxt',
+    'nuxt-lucide-icons'
   ]
 })
