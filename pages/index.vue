@@ -67,7 +67,7 @@
             <PracticeCard
               :icon="FileText"
               title="Full-Length Practice"
-              route="/full-length-practice"
+              route="/practice-selection"
             />
 
             <InProgressTestCard 
