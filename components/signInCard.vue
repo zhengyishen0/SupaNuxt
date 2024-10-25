@@ -4,7 +4,7 @@
         <CardTitle class="text-2xl font-bold self-center">Sign In</CardTitle>
     </CardHeader>
     <CardContent>
-        <form @submit.prevent="onSubmit" class="space-y-4">
+        <form class="space-y-4" @submit.prevent="onSubmit">
         <FormField v-slot="{ field }" :name="'email'">
             <FormItem>
             <FormLabel>Email Address</FormLabel>
@@ -28,7 +28,7 @@
         </div>
         </form>
         <div class="mt-4 text-center space-y-2">
-            <NuxtLink @click.prevent="$emit('switch-to-signup')" class="text-sm text-blue-600 hover:underline">
+            <NuxtLink class="text-sm text-blue-600 hover:underline" @click.prevent="$emit('switch-to-signup')">
             Create Account
             </NuxtLink>
         </div>

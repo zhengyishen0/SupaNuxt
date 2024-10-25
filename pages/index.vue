@@ -3,7 +3,7 @@
     <div class="max-w-5xl mx-auto">
       <!-- Header -->
       <div class="flex items-center justify-between mb-8">
-        <img src="/public/fasttrack-logo.png" alt="fasttrack" class="h-8" />
+        <img src="/public/fasttrack-logo.png" alt="fasttrack" class="h-8" >
         <div class="flex items-center gap-2">
           <span>{{ userFullName }}</span>
           <Avatar>
@@ -34,7 +34,7 @@
           <p class="font-semibold mb-2">You Have No Upcoming Tests</p>
           <p class="text-gray-600">
             Tests appear here a few weeks before test day. If you got a paper ticket from your school, 
-            <button @click="handleSignOut" class="text-blue-600">sign out</button>
+            <button class="text-blue-600" @click="handleSignOut">sign out</button>
             and sign in with it.
           </p>
         </Card>
@@ -97,7 +97,7 @@
               src="/public/graduates.jpeg" 
               alt="Graduates" 
               class="rounded-lg object-cover h-44"
-            />
+            >
             <div class="space-y-4">
               <h3 class="text-xl font-semibold">Plan for Life After High School</h3>
               <p class="text-gray-600">

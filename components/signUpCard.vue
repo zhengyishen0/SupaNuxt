@@ -2,14 +2,14 @@
     <Card class="w-full max-w-md">
         <CardHeader>
             <div class="flex justify-between items-center">
-            <Button variant="ghost" @click="$emit('switch-to-signin')" class="text-sm text-gray-600 flex items-center">
+            <Button variant="ghost" class="text-sm text-gray-600 flex items-center" @click="$emit('switch-to-signin')">
                 Back
             </Button>
             </div>
             <CardTitle class="text-2xl font-bold self-center">Sign Up</CardTitle>
         </CardHeader>
         <CardContent>
-            <form @submit.prevent="onSubmit" class="space-y-4">
+            <form class="space-y-4" @submit.prevent="onSubmit">
             <FormField v-slot="{ field }" :name="'email'">
                 <FormItem>
                 <FormLabel>Email Address</FormLabel>

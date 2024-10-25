@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
-    'nuxt-lucide-icons'
+    'nuxt-lucide-icons',
+    '@nuxt/eslint'
   ]
 })

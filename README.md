@@ -6,6 +6,12 @@ npx nuxi@latest init <project-name>
 npm install -D typescript
 ```
 
+## Install ESLint & Prettier
+```bash
+npx nuxi module add eslint
+# npx nuxi@latest module add prettier
+```
+
 ## Install Supabase 
 ```bash
 npx nuxi@latest module add supabase

@@ -101,10 +101,11 @@
               <div class="space-y-4">
                 <h3 class="text-sm font-medium">Breaks</h3>
                 <div class="space-y-2">
-                  <div v-for="(break_option, index) in breakOptions" 
+                  <div
+v-for="(break_option, index) in breakOptions" 
                        :key="index" 
                        class="flex items-center gap-2">
-                    <Checkbox v-model="selectedBreaks" :id="break_option.id" />
+                    <Checkbox :id="break_option.id" v-model="selectedBreaks" />
                     <Label :for="break_option.id" class="text-sm">
                       {{ break_option.label }}
                     </Label>
@@ -117,7 +118,7 @@
               <div class="space-y-2">
                 <h3 class="text-sm font-medium">Other</h3>
                 <div class="flex items-center gap-2">
-                  <Checkbox v-model="raisedLineDrawings" id="raised" />
+                  <Checkbox id="raised" v-model="raisedLineDrawings" />
                   <Label for="raised" class="text-sm">
                     Raised Line Drawings
                   </Label>
@@ -133,12 +134,8 @@
     <!-- Sticky bottom bar -->
     <div class="sticky bottom-0 bg-white border-t border-gray-200 p-4">
       <div class="max-w-2xl mx-auto flex justify-end gap-4">
-        <NuxtLink to="/">
-          <Button variant="outline">Back</Button>
-        </NuxtLink>
-        <NuxtLink to="/">
-          <Button>Next</Button>
-        </NuxtLink>
+        <Button variant="outline" @click="goBack">Back</Button>
+        <Button :disabled="!isFormValid" @click="goNext">Next</Button>
       </div>
     </div>
   </div>
@@ -146,6 +143,7 @@
 
 <script setup lang="ts">
 import { InfoIcon } from 'lucide-vue-next'
+import { useRouter } from 'vue-router'
 
 // State
 const testType = ref('')
@@ -178,4 +176,13 @@ const breakOptions = [
   { id: 'extended', label: 'Extended Breaks' },
   { id: 'needed', label: 'Breaks as Needed' }
 ]
+
+// Computed property to check if form is valid
+const isFormValid = computed(() => {
+  return testType.value !== '' && practiceTest.value !== ''
+})
+
+const router = useRouter()
+const goBack = () => { router.push('/') }
+const goNext = () => { router.push('/') }
 </script>
