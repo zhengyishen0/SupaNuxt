@@ -61,13 +61,13 @@
             <PracticeCard
               :icon="Calculator"
               title="Test Preview"
-              route="/test-preview"
+              route="/practice"
             />
             
             <PracticeCard
               :icon="FileText"
               title="Full-Length Practice"
-              route="/practice-selection"
+              route="/selection"
             />
 
             <InProgressTestCard 

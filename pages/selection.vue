@@ -182,5 +182,5 @@ const isFormValid = computed(() => {
 
 const router = useRouter()
 const goBack = () => { router.push('/') }
-const goNext = () => { router.push('/') }
+const goNext = () => { router.push('/practice') }
 </script>
