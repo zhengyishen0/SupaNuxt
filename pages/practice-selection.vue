@@ -132,12 +132,10 @@ v-for="(break_option, index) in breakOptions"
     </div>
 
     <!-- Sticky bottom bar -->
-    <div class="sticky bottom-0 bg-white border-t border-gray-200 p-4">
-      <div class="max-w-2xl mx-auto flex justify-end gap-4">
-        <Button variant="outline" @click="goBack">Back</Button>
-        <Button :disabled="!isFormValid" @click="goNext">Next</Button>
-      </div>
-    </div>
+    <footer class="sticky bottom-0 bg-white border-t border-gray-200 p-4 px-8 sm:px-12 md:px-24 flex justify-end">
+      <Button variant="outline" @click="goBack" class="mr-4">Back</Button>
+      <Button :disabled="!isFormValid" @click="goNext">Next</Button>
+    </footer>
   </div>
 </template>
 
