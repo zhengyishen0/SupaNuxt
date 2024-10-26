@@ -34,3 +34,16 @@ npx shadcn-vue@latest init
 ```bash
 npx shadcn-vue@latest add button
 ```
+
+
+## Add Auto Animation
+```bash
+npm install @formkit/auto-animate
+```
+
+```js
+// nuxt.config.ts
+export default defineNuxtConfig({
+  modules: ['@formkit/auto-animate/nuxt'],
+})
+```

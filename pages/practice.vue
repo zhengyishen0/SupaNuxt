@@ -1,42 +1,8 @@
 <!-- ExamInterface.vue -->
 <template>
     <div class="min-h-screen bg-white">
-      <!-- Header -->
-      <div class="border-b p-2 flex justify-between items-center">
-        <div class="flex items-center space-x-4">
-          <h1 class="text-lg font-semibold">Section 1: Reading and Writing</h1>
-          <Button variant="ghost" @click="showDirections = !showDirections">
-            Directions
-          </Button>
-        </div>
+      <HeaderComponent />
   
-        <div class="flex items-center space-x-4">
-          <div class="flex items-center">
-            <Timer class="h-4 w-4 mr-2" />
-            <span>31:51</span>
-          </div>
-          <Button variant="ghost" size="icon">
-            <Pencil class="h-4 w-4" />
-          </Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger as-child>
-              <Button variant="ghost" size="icon">
-                <MoreHorizontal class="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>Help</DropdownMenuItem>
-              <DropdownMenuItem>Shortcuts</DropdownMenuItem>
-              <DropdownMenuItem>Assistive Technology</DropdownMenuItem>
-              <DropdownMenuItem>Line Reader</DropdownMenuItem>
-              <DropdownMenuItem>Unscheduled Break</DropdownMenuItem>
-              <DropdownMenuItem>Exit the Exam</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </div>
-  
-      <!-- Main Content -->
       <div class="flex p-4 gap-4">
         <!-- Question Section -->
         <div class="w-1/2">
@@ -80,48 +46,20 @@
       </div>
   
       <!-- Footer -->
-      <div class="fixed bottom-0 left-0 right-0 border-t bg-white p-2 flex justify-between items-center">
-        <div>Question {{ currentQuestion }} of {{ totalQuestions }}</div>
-        <div class="flex space-x-2">
-          <Button
-            variant="outline"
-            @click="showQuestionNav = true"
-          >
-            Question Navigator
-          </Button>
-          <Button>
-            Next
-          </Button>
-        </div>
-      </div>
-  
-      <!-- Question Navigator Dialog -->
-      <Dialog :open="showQuestionNav" @update:open="showQuestionNav = $event">
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Section 1, Module 1: Reading and Writing Questions</DialogTitle>
-          </DialogHeader>
-          <div class="grid grid-cols-10 gap-2 p-4">
-            <Button
-              v-for="n in totalQuestions"
-              :key="n"
-              :variant="currentQuestion === n ? 'default' : 'outline'"
-              class="w-8 h-8 p-0"
-              @click="selectQuestion(n)"
-            >
-              {{ n }}
-            </Button>
-          </div>
-        </DialogContent>
-      </Dialog>
+      <FooterComponent 
+        :currentQuestion="currentQuestion" 
+        :totalQuestions="totalQuestions" 
+        :selectQuestion="selectQuestion" 
+        @onBack="handleBack" 
+        @onNext="handleNext" 
+      />
+
     </div>
   </template>
   
   <script setup>
-  import { Timer, Bookmark, HelpCircle, MoreHorizontal, Pencil } from 'lucide-vue-next'
-  
-  const showDirections = ref(false)
-  const showQuestionNav = ref(false)
+  import { Bookmark} from 'lucide-vue-next'
+
   const currentQuestion = ref(1)
   const totalQuestions = 27
   
@@ -132,8 +70,18 @@
     { id: 'D', text: 'personal' }
   ]
   
-  const selectQuestion = (number) => {
-    currentQuestion.value = number
-    showQuestionNav.value = false
+
+  const selectQuestion = (questionNumber) => {
+    currentQuestion.value = questionNumber
+    // Add any additional logic for selecting a question
+  }
+
+  const handleBack = () => {
+    // Implement the logic for handling the back button
+  }
+
+  const handleNext = () => {
+    // Implement the logic for handling the next button
   }
   </script>
+

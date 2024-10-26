@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     'shadcn-nuxt',
     'nuxt-lucide-icons',
-    '@nuxt/eslint'
+    '@nuxt/eslint',
+    // '@formkit/auto-animate/nuxt'
   ]
 })
