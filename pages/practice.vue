@@ -1,7 +1,7 @@
 <!-- ExamInterface.vue -->
 <template>
     <div class="min-h-screen bg-white">
-      <HeaderComponent />
+      <ExamHeader />
   
       <div class="flex p-4 gap-4">
         <!-- Question Section -->
@@ -45,8 +45,7 @@
         </div>
       </div>
   
-      <!-- Footer -->
-      <FooterComponent 
+      <ExamFooter
         :currentQuestion="currentQuestion" 
         :totalQuestions="totalQuestions" 
         :selectQuestion="selectQuestion" 

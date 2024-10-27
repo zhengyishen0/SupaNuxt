@@ -1,11 +1,13 @@
 <!-- components/HeaderComponent.vue -->
 <template>
-  <div class="border-b p-2 flex justify-between items-center">
+  <div class="border-b flex justify-between items-center p-2 px-8">
     <div class="flex flex-col items-start space-y-2">
       <h1 class="text-lg font-semibold">Section 1: Reading and Writing</h1>
       <Popover>
-        <PopoverTrigger>
-        Directions
+        <PopoverTrigger @click="isOpen = !isOpen">
+          Directions
+          <ChevronDown v-if="!isOpen" class="inline-block" />
+          <ChevronUp v-else class="inline-block" />
         </PopoverTrigger>
         <PopoverContent>
           <div class="p-4">
@@ -24,19 +26,20 @@
                 <span class="text-xs">Annotate</span>
             </div>
       </Button>
-      <ExamOptionsMenu @showExitDialog="showExitDialog = true" />
+      <ExamMenu @showExitDialog="showExitDialog = true" />
     </div>
 
     <!-- Exit Confirmation Dialog -->
-    <ExitExamDialog 
+    <ExamExitDialog 
         v-model:isOpen="showExitDialog"
       />
   </div>
 </template>
 
 <script setup>
-import { Pencil } from 'lucide-vue-next'
+import { Pencil, ChevronDown, ChevronUp } from 'lucide-vue-next'
 
 const totalTime = ref(1911) // Total time in seconds (31:51)
 const showExitDialog = ref(false)
+const isOpen = ref(false) // Track popover open state
 </script>

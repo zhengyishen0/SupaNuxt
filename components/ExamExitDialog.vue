@@ -7,21 +7,26 @@
       <DialogDescription>
         Test previews are not timed or scored, and your progress isn't saved. If you exit and come back, you'll start over.
       </DialogDescription>
-      <DialogFooter class="sm:justify-between">
+      <DialogFooter class="sm:justify-end">
         <Button variant="ghost" @click="$emit('update:isOpen', false)">
           Continue Test Preview
         </Button>
-        <NuxtLink to="/">
-        <Button variant="default" class="bg-yellow-400 hover:bg-yellow-500 text-black ">
+        <Button variant="default" class="bg-yellow-400 hover:bg-yellow-500 text-black " @click="exitExam">
           Exit
         </Button>
-    </NuxtLink>
       </DialogFooter>
     </DialogContent>
   </Dialog>
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const exitExam = () => {
+  router.push('/')
+}
 
 defineProps({
   isOpen: {
