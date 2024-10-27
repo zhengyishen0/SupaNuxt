@@ -1,6 +1,6 @@
 <template>
   <button
-    @click="$emit('selectQuestion', number)"
+    @click="handleClick(number)"
     :class="['w-8 h-8 p-0 relative text-center', buttonClass]"
   >
     {{ number }}
@@ -29,9 +29,22 @@ defineProps({
     type: Boolean,
     default: false
   },
-  buttonClass: {
-    type: String,
-    required: true
+  isCompleted: {
+    type: Boolean,
+    default: false
   }
 });
+
+const handleClick = (number) => {
+  console.log('clicked', number)
+}
+
+const buttonClass = computed(() => (n) => {
+  if (isCompleted) {
+    return 'bg-blue-500 text-white'
+  } else {
+    return 'border border-dashed border-gray-400'
+  }
+})
+
 </script>

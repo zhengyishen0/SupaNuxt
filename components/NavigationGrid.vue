@@ -21,13 +21,12 @@
     <!-- Navigation Grid -->
     <div class="grid grid-cols-10">
       <NavigationButton
-        v-for="n in sampleData.totalQuestions"
-        :key="n"
-        :number="n"
-        :isBookmarked="isBookmarked(n)"
-        :isSelected="isSelected(n)"
-        :buttonClass="getButtonClass(n)"
-        @selectQuestion="$emit('selectQuestion', n)"
+        v-for="question in sampleData.questions"
+        :key="question.key"
+        :number="question.questionIndex"
+        :is-bookmarked="question.isBookmarked"
+        :is-current="question.questionIndex === sampleData.currentQuestionIndex"
+        :is-completed="question.userAnswer !== ''"
       />
     </div>
 
@@ -40,8 +39,8 @@
 
 <script setup>
 import { MapPin, Bookmark} from 'lucide-vue-next'
-import NavigationButton from './NavigationButton.vue'
 
+const router = useRouter()
 
 const sampleData = {
   currentQuestionIndex: 7,
@@ -60,34 +59,7 @@ const sampleData = {
 }
 
 const goToReview = () => {
-  router.push('/review')
+  router.push('/')
 }
 
-// Computed properties
-
-
-const bookmarkedQuestions = computed(() => 
-  Object.values(sampleData.questions)
-    .filter(q => q.isBookmarked)
-    .map(q => q.questionIndex)
-)
-
-
-const completedQuestions = computed(() => 
-  Object.values(sampleData.questions)
-    .filter(q => q.userAnswer !== "")
-    .map(q => q.questionIndex)
-)
-const getButtonClass = computed(() => (n) => {
-  if (isCompleted(n)) {
-    return 'bg-blue-500 text-white'
-  } else {
-    return 'border border-dashed border-gray-400'
-  }
-})
-
-// Methods
-const isBookmarked = (n) => bookmarkedQuestions.value.includes(n)
-const isCompleted = (n) => completedQuestions.value.includes(n)
-const isSelected = (n) => sampleData.currentQuestionIndex === n
 </script>
