@@ -1,50 +1,48 @@
 <template>
-  <div class="question-navigation-grid">
-    <h3 class="font-semibold mb-2">Section 1, Module 1: Reading and Writing Questions</h3>
+  <div class="flex flex-col items-center">
+    <h3 class="font-semibold mb-2 text-center">Section 1, Module 1: Reading and Writing Questions</h3>
+    
+    <!-- Navigation Indicators -->
     <div class="flex items-center gap-4 mb-2">
       <div class="flex items-center gap-1">
-        <span class="w-3 h-3 rounded-full border border-gray-400"></span> Current
+        <MapPin class="w-4 h-4" /> 
+        <p class="text-sm">Current</p>
       </div>
       <div class="flex items-center gap-1">
-        <span class="w-3 h-3 border border-dashed border-gray-400"></span> Unanswered
+        <span class="w-3 h-3 border border-dashed border-gray-400"></span> 
+        <p class="text-sm">Unanswered</p>
       </div>
       <div class="flex items-center gap-1">
-        <span class="w-3 h-3 bg-blue-500"></span> For Review
+        <Bookmark class="w-6 h-6 text-red-500"/> 
+        <p class="text-sm">For Review</p>
       </div>
     </div>
-    <div class="grid grid-cols-10 gap-2">
-      <button
+
+    <!-- Navigation Grid -->
+    <div class="grid grid-cols-10">
+      <NavigationButton
         v-for="n in sampleData.totalQuestions"
         :key="n"
-        :class="[
-          'w-8 h-8 p-0 relative text-center',
-          getButtonClass(n)
-        ]"
-        @click="$emit('selectQuestion', n)"
-      >
-        {{ n }}
-        <span 
-          v-if="sampleData.currentQuestionIndex === n" 
-          class="absolute -top-1 -left-1 w-2 h-2 bg-blue-500 rounded-full"
-        ></span>
-        <span 
-          v-if="isBookmarked(n)" 
-          class="absolute top-0 right-0 text-red-500 text-xs"
-        >
-          ★
-        </span>
-      </button>
+        :number="n"
+        :isBookmarked="isBookmarked(n)"
+        :isSelected="isSelected(n)"
+        :buttonClass="getButtonClass(n)"
+        @selectQuestion="$emit('selectQuestion', n)"
+      />
     </div>
-    <button 
-      class="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-      @click="$emit('goToReview')"
-    >
+
+    <!-- Go to Review Page -->  
+    <Button @click="goToReview" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-full">
       Go to Review Page
-    </button>
+    </Button>
   </div>
 </template>
 
 <script setup>
+import { MapPin, Bookmark} from 'lucide-vue-next'
+import NavigationButton from './NavigationButton.vue'
+
+
 const sampleData = {
   currentQuestionIndex: 7,
   totalQuestions: 30,
@@ -61,12 +59,12 @@ const sampleData = {
   }
 }
 
+const goToReview = () => {
+  router.push('/review')
+}
+
 // Computed properties
-const completedQuestions = computed(() => 
-  Object.values(sampleData.questions)
-    .filter(q => q.userAnswer !== "")
-    .map(q => q.questionIndex)
-)
+
 
 const bookmarkedQuestions = computed(() => 
   Object.values(sampleData.questions)
@@ -74,11 +72,15 @@ const bookmarkedQuestions = computed(() =>
     .map(q => q.questionIndex)
 )
 
+
+const completedQuestions = computed(() => 
+  Object.values(sampleData.questions)
+    .filter(q => q.userAnswer !== "")
+    .map(q => q.questionIndex)
+)
 const getButtonClass = computed(() => (n) => {
-  if (completedQuestions.value.includes(n)) {
+  if (isCompleted(n)) {
     return 'bg-blue-500 text-white'
-  } else if (sampleData.currentQuestionIndex === n) {
-    return 'border-2 border-blue-500'
   } else {
     return 'border border-dashed border-gray-400'
   }
@@ -86,11 +88,6 @@ const getButtonClass = computed(() => (n) => {
 
 // Methods
 const isBookmarked = (n) => bookmarkedQuestions.value.includes(n)
+const isCompleted = (n) => completedQuestions.value.includes(n)
+const isSelected = (n) => sampleData.currentQuestionIndex === n
 </script>
-
-<style scoped>
-.question-navigation-grid button {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-</style>

@@ -12,7 +12,7 @@
           </Button>
         </PopoverTrigger>
         <PopoverContent class="w-80">
-          <QuestionNavigationGrid
+          <NavigationGrid
             :current-question="currentQuestion"
             :total-questions="totalQuestions"
             @select-question="selectQuestion"
