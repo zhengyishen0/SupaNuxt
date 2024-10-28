@@ -38,9 +38,22 @@
 </template>
 
 <script setup>
-import { HelpCircle, Keyboard, Accessibility, AlignLeft, PauseCircle, LogOut, MoreVertical } from 'lucide-vue-next'
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from '@/components/ui/dropdown-menu'
-import { Button } from '@/components/ui/button'
+import {
+  HelpCircle,
+  Keyboard,
+  Accessibility,
+  AlignLeft,
+  PauseCircle,
+  LogOut,
+  MoreVertical,
+} from "lucide-vue-next";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
-defineEmits(['showExitDialog'])
+defineEmits(["showExitDialog"]);
 </script>

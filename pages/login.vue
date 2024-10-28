@@ -9,13 +9,13 @@
 export default {
   data() {
     return {
-      showSignIn: true
-    }
+      showSignIn: true,
+    };
   },
   methods: {
     toggleCard() {
-      this.showSignIn = !this.showSignIn
-    }
-  }
-}
+      this.showSignIn = !this.showSignIn;
+    },
+  },
+};
 </script>

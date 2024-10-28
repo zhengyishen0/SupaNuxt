@@ -1,8 +1,7 @@
 <template>
   <button
     @click="handleClick(number)"
-    :class="['w-8 h-8 p-0 relative text-center', buttonClass]"
-  >
+    :class="['w-8 h-8 p-0 relative text-center', buttonClass]">
     {{ number }}
     <span v-if="isBookmarked">
       <Bookmark class="w-3 h-3 absolute top-0 right-0 text-red-500" />
@@ -14,37 +13,36 @@
 </template>
 
 <script setup>
-import { Bookmark, MapPin } from 'lucide-vue-next';
+import { Bookmark, MapPin } from "lucide-vue-next";
 
 defineProps({
   number: {
     type: Number,
-    required: true
+    required: true,
   },
   isBookmarked: {
     type: Boolean,
-    default: false
+    default: false,
   },
   isSelected: {
     type: Boolean,
-    default: false
+    default: false,
   },
   isCompleted: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 });
 
 const handleClick = (number) => {
-  console.log('clicked', number)
-}
+  console.log("clicked", number);
+};
 
 const buttonClass = computed(() => (n) => {
   if (isCompleted) {
-    return 'bg-blue-500 text-white'
+    return "bg-blue-500 text-white";
   } else {
-    return 'border border-dashed border-gray-400'
+    return "border border-dashed border-gray-400";
   }
-})
-
+});
 </script>

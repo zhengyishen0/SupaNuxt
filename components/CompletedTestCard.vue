@@ -15,12 +15,12 @@
 </template>
 
 <script setup>
-import { Check, Trash2 } from 'lucide-vue-next'
+import { Check, Trash2 } from "lucide-vue-next";
 
 defineProps({
   test: {
     type: Object,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 </script>

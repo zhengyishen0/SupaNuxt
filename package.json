@@ -22,7 +22,6 @@
     "lucide-vue-next": "^0.453.0",
     "nuxt": "^3.13.2",
     "nuxt-lucide-icons": "^1.0.5",
-    "prettier": "^3.3.3",
     "radix-vue": "^1.9.7",
     "shadcn-nuxt": "^0.10.4",
     "tailwind-merge": "^2.5.4",
@@ -33,6 +32,8 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "3.3.3",
     "typescript": "^5.6.3"
   }
 }

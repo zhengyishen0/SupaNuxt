@@ -15,15 +15,15 @@
 defineProps({
   icon: {
     type: Object,
-    required: true
+    required: true,
   },
   title: {
     type: String,
-    required: true
+    required: true,
   },
   route: {
     type: String,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 </script>
