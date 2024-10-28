@@ -14,8 +14,9 @@
 
 <script setup>
 import { Bookmark, MapPin } from "lucide-vue-next";
+// console.log(number, isCompleted);
 
-defineProps({
+const props = defineProps({
   number: {
     type: Number,
     required: true,
@@ -38,8 +39,8 @@ const handleClick = (number) => {
   console.log("clicked", number);
 };
 
-const buttonClass = computed(() => (n) => {
-  if (isCompleted) {
+const buttonClass = computed(() => {
+  if (props.isCompleted) {
     return "bg-blue-500 text-white";
   } else {
     return "border border-dashed border-gray-400";

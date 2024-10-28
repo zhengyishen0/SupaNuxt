@@ -1,8 +1,7 @@
 <!-- components/FooterComponent.vue -->
 <template>
   <div
-    class="fixed bottom-0 left-0 right-0 border-t bg-white p-2 px-8 flex justify-between items-center"
-  >
+    class="fixed bottom-0 left-0 right-0 border-t bg-white p-2 px-8 flex justify-between items-center">
     <div>Zhengyi Shen</div>
     <div class="absolute left-1/2 transform -translate-x-1/2">
       <Popover>
@@ -10,19 +9,17 @@
           <Button
             variant="outline"
             @click="isOpen = !isOpen"
-            class="flex items-center space-x-2"
-          >
+            class="flex items-center space-x-2">
             <span>Question {{ currentQuestion }} of {{ totalQuestions }}</span>
             <ChevronUp v-if="!isOpen" class="h-4 w-4" />
             <ChevronDown v-else class="h-4 w-4" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent class="w-80">
+        <PopoverContent class="w-100">
           <NavigationGrid
             :current-question="currentQuestion"
             :total-questions="totalQuestions"
-            @select-question="selectQuestion"
-          />
+            @select-question="selectQuestion" />
         </PopoverContent>
       </Popover>
     </div>

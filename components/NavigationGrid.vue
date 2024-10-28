@@ -1,11 +1,14 @@
 <template>
   <div class="flex flex-col items-center">
-    <h3 class="font-semibold mb-2 text-center">
+    <h3 class="font-semibold text-center mx-8">
       Section 1, Module 1: Reading and Writing Questions
     </h3>
 
+    <!-- Divider -->
+    <div class="w-full border-t border-gray-200 mt-4"></div>
+
     <!-- Navigation Indicators -->
-    <div class="flex items-center gap-4 mb-2">
+    <div class="flex items-center gap-4">
       <div class="flex items-center gap-1">
         <MapPin class="w-4 h-4" />
         <p class="text-sm">Current</p>
@@ -20,23 +23,24 @@
       </div>
     </div>
 
+    <!-- Divider -->
+    <div class="w-full border-t border-gray-200 mb-4"></div>
+
     <!-- Navigation Grid -->
-    <div class="grid grid-cols-10">
+    <div class="grid grid-cols-10 gap-x-2 gap-y-3">
       <NavigationButton
         v-for="question in sampleData.questions"
         :key="question.key"
         :number="question.questionIndex"
         :is-bookmarked="question.isBookmarked"
         :is-current="question.questionIndex === sampleData.currentQuestionIndex"
-        :is-completed="question.userAnswer !== ''"
-      />
+        :is-completed="question.userAnswer !== ''" />
     </div>
 
     <!-- Go to Review Page -->
     <Button
       @click="goToReview"
-      class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-full"
-    >
+      class="mt-4 px-4 py-2 border-2 border-blue-500 text-blue-500 bg-white hover:bg-blue-500 hover:text-white rounded-full transition-colors">
       Go to Review Page
     </Button>
   </div>
@@ -46,6 +50,10 @@
 import { MapPin, Bookmark } from "lucide-vue-next";
 
 const router = useRouter();
+
+const goToReview = () => {
+  router.push("/");
+};
 
 const sampleData = {
   currentQuestionIndex: 7,
@@ -114,10 +122,153 @@ const sampleData = {
       isBookmarked: true,
       userAnswer: "",
     },
+    10: {
+      questionIndex: 10,
+      questionContext: "Context for Q10",
+      questionText: "Question 10 text",
+      isBookmarked: false,
+      userAnswer: "User's answer for Q10",
+    },
+    11: {
+      questionIndex: 11,
+      questionContext: "Context for Q11",
+      questionText: "Question 11 text",
+      isBookmarked: true,
+      userAnswer: "",
+    },
+    12: {
+      questionIndex: 12,
+      questionContext: "Context for Q12",
+      questionText: "Question 12 text",
+      isBookmarked: false,
+      userAnswer: "User's answer for Q12",
+    },
+    13: {
+      questionIndex: 13,
+      questionContext: "Context for Q13",
+      questionText: "Question 13 text",
+      isBookmarked: false,
+      userAnswer: "",
+    },
+    14: {
+      questionIndex: 14,
+      questionContext: "Context for Q14",
+      questionText: "Question 14 text",
+      isBookmarked: true,
+      userAnswer: "",
+    },
+    15: {
+      questionIndex: 15,
+      questionContext: "Context for Q15",
+      questionText: "Question 15 text",
+      isBookmarked: false,
+      userAnswer: "User's answer for Q15",
+    },
+    16: {
+      questionIndex: 16,
+      questionContext: "Context for Q16",
+      questionText: "Question 16 text",
+      isBookmarked: false,
+      userAnswer: "",
+    },
+    17: {
+      questionIndex: 17,
+      questionContext: "Context for Q17",
+      questionText: "Question 17 text",
+      isBookmarked: true,
+      userAnswer: "User's answer for Q17",
+    },
+    18: {
+      questionIndex: 18,
+      questionContext: "Context for Q18",
+      questionText: "Question 18 text",
+      isBookmarked: false,
+      userAnswer: "",
+    },
+    19: {
+      questionIndex: 19,
+      questionContext: "Context for Q19",
+      questionText: "Question 19 text",
+      isBookmarked: false,
+      userAnswer: "User's answer for Q19",
+    },
+    20: {
+      questionIndex: 20,
+      questionContext: "Context for Q20",
+      questionText: "Question 20 text",
+      isBookmarked: true,
+      userAnswer: "",
+    },
+    21: {
+      questionIndex: 21,
+      questionContext: "Context for Q21",
+      questionText: "Question 21 text",
+      isBookmarked: false,
+      userAnswer: "User's answer for Q21",
+    },
+    22: {
+      questionIndex: 22,
+      questionContext: "Context for Q22",
+      questionText: "Question 22 text",
+      isBookmarked: true,
+      userAnswer: "",
+    },
+    23: {
+      questionIndex: 23,
+      questionContext: "Context for Q23",
+      questionText: "Question 23 text",
+      isBookmarked: false,
+      userAnswer: "User's answer for Q23",
+    },
+    24: {
+      questionIndex: 24,
+      questionContext: "Context for Q24",
+      questionText: "Question 24 text",
+      isBookmarked: false,
+      userAnswer: "",
+    },
+    25: {
+      questionIndex: 25,
+      questionContext: "Context for Q25",
+      questionText: "Question 25 text",
+      isBookmarked: true,
+      userAnswer: "User's answer for Q25",
+    },
+    26: {
+      questionIndex: 26,
+      questionContext: "Context for Q26",
+      questionText: "Question 26 text",
+      isBookmarked: false,
+      userAnswer: "",
+    },
+    27: {
+      questionIndex: 27,
+      questionContext: "Context for Q27",
+      questionText: "Question 27 text",
+      isBookmarked: true,
+      userAnswer: "",
+    },
+    28: {
+      questionIndex: 28,
+      questionContext: "Context for Q28",
+      questionText: "Question 28 text",
+      isBookmarked: false,
+      userAnswer: "User's answer for Q28",
+    },
+    29: {
+      questionIndex: 29,
+      questionContext: "Context for Q29",
+      questionText: "Question 29 text",
+      isBookmarked: true,
+      userAnswer: "",
+    },
+    30: {
+      questionIndex: 30,
+      questionContext: "Context for Q30",
+      questionText: "Question 30 text",
+      isBookmarked: false,
+      userAnswer: "User's answer for Q30",
+    },
   },
-};
-
-const goToReview = () => {
-  router.push("/");
 };
 </script>
