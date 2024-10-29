@@ -92,7 +92,8 @@
                 (t) => t.status === 'completed'
               )"
               :key="test.id"
-              :test="test" />
+              :test="test"
+              @delete="deleteTest" />
           </template>
         </div>
       </div>
@@ -141,6 +142,11 @@ const initials = computed(() =>
     .map((name) => name[0])
     .join("")
 );
+
+const deleteTest = (test) => {
+  practiceTests.value = practiceTests.value.filter((t) => t.id !== test.id);
+  console.log(practiceTests.value);
+};
 
 const practiceTests = ref([
   { id: 1, name: "SAT Practice 1", status: "in_progress", type: "sat" },

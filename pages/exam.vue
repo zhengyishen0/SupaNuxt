@@ -45,15 +45,14 @@
         </p>
 
         <!-- Options Section -->
-        <div class="space-y-2">
-          <Button
-            v-for="option in questionOptions"
-            :key="option.id"
-            variant="outline"
-            class="w-full justify-start text-left h-auto py-3 px-4">
-            <span class="mr-4">{{ option.id }}</span>
-            {{ option.text }}
-          </Button>
+        <div
+          v-for="option in questionOptions"
+          :key="option.id"
+          class="space-y-2">
+          <OptionButton
+            :optionId="option.id"
+            :optionText="option.text"
+            :isStrikethrough="isStrikethrough" />
         </div>
       </div>
     </div>
@@ -69,6 +68,7 @@
 
 <script setup>
 import { Bookmark, KeyboardOff } from "lucide-vue-next";
+import OptionButton from "~/components/OptionButton.vue";
 
 const currentQuestion = ref(1);
 const totalQuestions = 27;

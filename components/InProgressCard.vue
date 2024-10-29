@@ -3,7 +3,9 @@
     <div class="space-y-4">
       <div class="flex items-center justify-between">
         <h3 class="font-semibold">{{ test.name }}</h3>
-        <Trash2 class="w-5 h-5 text-gray-400" />
+        <Trash2
+          @click="$emit('remove', test)"
+          class="w-5 h-5 text-gray-400 cursor-pointer hover:text-red-500" />
       </div>
       <div class="flex items-center gap-2 text-gray-600">
         <Clock class="w-4 h-4" />
