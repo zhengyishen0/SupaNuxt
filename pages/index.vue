@@ -67,36 +67,32 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <!-- Active Tab Content -->
           <template v-if="activePracticeTab === 'active'">
-            <PracticeCard
+            <SelectionCard
               :icon="Calculator"
               title="Test Preview"
-              route="/practice"
-            />
+              route="/exam" />
 
-            <PracticeCard
+            <SelectionCard
               :icon="FileText"
               title="Full-Length Practice"
-              route="/selection"
-            />
+              route="/selection" />
 
-            <InProgressTestCard
+            <InProgressCard
               v-for="test in practiceTests.filter(
-                (t) => t.status === 'in_progress',
+                (t) => t.status === 'in_progress'
               )"
               :key="test.id"
-              :test="test"
-            />
+              :test="test" />
           </template>
 
           <!-- Past Tab Content -->
           <template v-if="activePracticeTab === 'past'">
-            <CompletedTestCard
+            <CompletedCard
               v-for="test in practiceTests.filter(
-                (t) => t.status === 'completed',
+                (t) => t.status === 'completed'
               )"
               :key="test.id"
-              :test="test"
-            />
+              :test="test" />
           </template>
         </div>
       </div>
@@ -109,8 +105,7 @@
             <img
               src="/public/graduates.jpeg"
               alt="Graduates"
-              class="rounded-lg object-cover h-44"
-            />
+              class="rounded-lg object-cover h-44" />
             <div class="space-y-4">
               <h3 class="text-xl font-semibold">
                 Plan for Life After High School
@@ -144,7 +139,7 @@ const initials = computed(() =>
   userFullName.value
     .split(" ")
     .map((name) => name[0])
-    .join(""),
+    .join("")
 );
 
 const practiceTests = ref([

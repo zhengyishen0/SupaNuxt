@@ -4,9 +4,9 @@
     <div class="flex flex-col items-start space-y-2">
       <h1 class="text-lg font-semibold">Section 1: Reading and Writing</h1>
       <Popover>
-        <PopoverTrigger class="text-md" @click="isOpen = !isOpen">
+        <PopoverTrigger class="text-md">
           Directions
-          <ChevronDown v-if="!isOpen" class="inline-block" />
+          <ChevronDown v-if="!open" class="inline-block" />
           <ChevronUp v-else class="inline-block" />
         </PopoverTrigger>
         <PopoverContent>
@@ -41,5 +41,4 @@ import { Pencil, ChevronDown, ChevronUp } from "lucide-vue-next";
 
 const totalTime = ref(1911); // Total time in seconds (31:51)
 const showExitDialog = ref(false);
-const isOpen = ref(false); // Track popover open state
 </script>

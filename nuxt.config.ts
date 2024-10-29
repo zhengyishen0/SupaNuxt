@@ -6,8 +6,7 @@ export default defineNuxtConfig({
     // '@nuxtjs/supabase',
     "@nuxtjs/tailwindcss",
     "shadcn-nuxt",
-    "nuxt-lucide-icons",
+    "nuxt-lucide-icons", // '@formkit/auto-animate/nuxt'
     "@nuxt/eslint",
-    // '@formkit/auto-animate/nuxt'
   ],
 });

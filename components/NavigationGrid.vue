@@ -17,7 +17,7 @@
           <p class="text-sm">Unanswered</p>
         </div>
         <div class="flex items-center gap-1">
-          <Bookmark class="w-6 h-6 text-red-500" />
+          <Bookmark fill="red" stroke="red" class="w-4 h-4" />
           <p class="text-sm">For Review</p>
         </div>
       </div>

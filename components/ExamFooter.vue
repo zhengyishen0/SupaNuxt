@@ -24,8 +24,8 @@
       </Popover>
     </div>
     <div class="space-x-2">
-      <Button @click="onBack">Back</Button>
-      <Button @click="onNext">Next</Button>
+      <FooterButton text="Back" @click="onBack" />
+      <FooterButton text="Next" @click="onNext" />
     </div>
   </div>
 </template>
@@ -33,7 +33,7 @@
 <script setup>
 import { ChevronUp, ChevronDown } from "lucide-vue-next";
 
-const isOpen = ref(false); // Track popover open state
+const isOpen = ref(false);
 
 defineProps({
   currentQuestion: Number,

@@ -5,9 +5,10 @@
     </div>
     <button
       @click="handleClick(number)"
-      :class="['w-8 h-8 p-0 relative text-center', buttonClass]">
+      :class="['w-8 h-8 p-0 relative text-center font-semibold', buttonClass]">
       {{ number }}
       <Bookmark
+        fill="red"
         v-if="isBookmarked"
         class="w-3 h-3 absolute top-0 right-0 text-red-500" />
     </button>
@@ -44,7 +45,7 @@ const buttonClass = computed(() => {
   if (props.isCompleted) {
     return "bg-blue-500 text-white";
   } else {
-    return "border border-dashed border-gray-400";
+    return "border border-dashed border-gray-400 text-blue-500";
   }
 });
 </script>

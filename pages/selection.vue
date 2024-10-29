@@ -25,8 +25,7 @@
                   <SelectItem
                     v-for="type in testTypes"
                     :key="type"
-                    :value="type"
-                  >
+                    :value="type">
                     {{ type }}
                   </SelectItem>
                 </SelectContent>
@@ -44,8 +43,7 @@
                   <SelectItem
                     v-for="test in practiceTests"
                     :key="test"
-                    :value="test"
-                  >
+                    :value="test">
                     {{ test }}
                   </SelectItem>
                 </SelectContent>
@@ -116,8 +114,7 @@
                   <div
                     v-for="(break_option, index) in breakOptions"
                     :key="index"
-                    class="flex items-center gap-2"
-                  >
+                    class="flex items-center gap-2">
                     <Checkbox :id="break_option.id" v-model="selectedBreaks" />
                     <Label :for="break_option.id" class="text-sm">
                       {{ break_option.label }}
@@ -146,8 +143,7 @@
 
     <!-- Sticky bottom bar -->
     <footer
-      class="sticky bottom-0 bg-white border-t border-gray-200 p-4 px-8 sm:px-12 md:px-24 flex justify-end"
-    >
+      class="sticky bottom-0 bg-white border-t border-gray-200 p-4 px-8 sm:px-12 md:px-24 flex justify-end">
       <Button variant="outline" @click="goBack" class="mr-4">Back</Button>
       <Button :disabled="!isFormValid" @click="goNext">Next</Button>
     </footer>
@@ -156,7 +152,6 @@
 
 <script setup lang="ts">
 import { InfoIcon } from "lucide-vue-next";
-import { useRouter } from "vue-router";
 
 // State
 const testType = ref("");
