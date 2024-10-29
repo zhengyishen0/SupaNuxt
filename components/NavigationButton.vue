@@ -14,7 +14,6 @@
 
 <script setup>
 import { Bookmark, MapPin } from "lucide-vue-next";
-// console.log(number, isCompleted);
 
 const props = defineProps({
   number: {

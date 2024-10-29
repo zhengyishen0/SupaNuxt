@@ -1,36 +1,34 @@
 <template>
-  <div class="flex flex-col items-center">
-    <h3 class="font-semibold text-center mx-8">
+  <div class="flex flex-col items-center mx-4">
+    <h3 class="font-semibold text-center w-96">
       Section 1, Module 1: Reading and Writing Questions
     </h3>
 
-    <!-- Divider -->
-    <div class="w-full border-t border-gray-200 mt-4"></div>
-
     <!-- Navigation Indicators -->
-    <div class="flex items-center gap-4">
-      <div class="flex items-center gap-1">
-        <MapPin class="w-4 h-4" />
-        <p class="text-sm">Current</p>
+    <div class="my-2 w-full">
+      <Separator class="my-1" />
+      <div class="flex items-center justify-center gap-4">
+        <div class="flex items-center gap-1">
+          <MapPin class="w-4 h-4" />
+          <p class="text-sm">Current</p>
+        </div>
+        <div class="flex items-center gap-1">
+          <span class="w-3 h-3 border border-dashed border-gray-400"></span>
+          <p class="text-sm">Unanswered</p>
+        </div>
+        <div class="flex items-center gap-1">
+          <Bookmark class="w-6 h-6 text-red-500" />
+          <p class="text-sm">For Review</p>
+        </div>
       </div>
-      <div class="flex items-center gap-1">
-        <span class="w-3 h-3 border border-dashed border-gray-400"></span>
-        <p class="text-sm">Unanswered</p>
-      </div>
-      <div class="flex items-center gap-1">
-        <Bookmark class="w-6 h-6 text-red-500" />
-        <p class="text-sm">For Review</p>
-      </div>
+      <Separator class="my-1" />
     </div>
-
-    <!-- Divider -->
-    <div class="w-full border-t border-gray-200 mb-4"></div>
 
     <!-- Navigation Grid -->
     <div class="grid grid-cols-10 gap-x-2 gap-y-3">
       <NavigationButton
         v-for="question in sampleData.questions"
-        :key="question.key"
+        :key="question.questionIndex"
         :number="question.questionIndex"
         :is-bookmarked="question.isBookmarked"
         :is-current="question.questionIndex === sampleData.currentQuestionIndex"
@@ -40,13 +38,13 @@
     <!-- Go to Review Page -->
     <Button
       @click="goToReview"
-      class="mt-4 px-4 py-2 border-2 border-blue-500 text-blue-500 bg-white hover:bg-blue-500 hover:text-white rounded-full transition-colors">
+      class="my-4 border-2 border-blue-500 text-blue-500 bg-white hover:bg-blue-500 hover:text-white rounded-full transition-colors">
       Go to Review Page
     </Button>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { MapPin, Bookmark } from "lucide-vue-next";
 
 const router = useRouter();

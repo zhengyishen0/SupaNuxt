@@ -15,7 +15,7 @@
             <ChevronDown v-else class="h-4 w-4" />
           </Button>
         </PopoverTrigger>
-        <PopoverContent class="w-100">
+        <PopoverContent class="w-auto">
           <NavigationGrid
             :current-question="currentQuestion"
             :total-questions="totalQuestions"
