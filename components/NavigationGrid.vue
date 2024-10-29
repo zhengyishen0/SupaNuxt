@@ -5,7 +5,7 @@
     </h3>
 
     <!-- Navigation Indicators -->
-    <div class="my-2 w-full">
+    <div class="my-1 w-full">
       <Separator class="my-1" />
       <div class="flex items-center justify-center gap-4">
         <div class="flex items-center gap-1">
@@ -25,7 +25,7 @@
     </div>
 
     <!-- Navigation Grid -->
-    <div class="grid grid-cols-10 gap-x-2 gap-y-3">
+    <div class="grid grid-cols-10 gap-x-2">
       <NavigationButton
         v-for="question in sampleData.questions"
         :key="question.questionIndex"

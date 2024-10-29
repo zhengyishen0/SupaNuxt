@@ -1,15 +1,17 @@
 <template>
-  <button
-    @click="handleClick(number)"
-    :class="['w-8 h-8 p-0 relative text-center', buttonClass]">
-    {{ number }}
-    <span v-if="isBookmarked">
-      <Bookmark class="w-3 h-3 absolute top-0 right-0 text-red-500" />
-    </span>
-    <span v-if="isSelected">
-      <MapPin class="w-3 h-3 absolute top-0 self-center" />
-    </span>
-  </button>
+  <div class="flex flex-col items-center">
+    <div class="h-3">
+      <MapPin v-if="isCurrent" class="w-3 h-3" />
+    </div>
+    <button
+      @click="handleClick(number)"
+      :class="['w-8 h-8 p-0 relative text-center', buttonClass]">
+      {{ number }}
+      <Bookmark
+        v-if="isBookmarked"
+        class="w-3 h-3 absolute top-0 right-0 text-red-500" />
+    </button>
+  </div>
 </template>
 
 <script setup>
@@ -24,7 +26,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  isSelected: {
+  isCurrent: {
     type: Boolean,
     default: false,
   },
