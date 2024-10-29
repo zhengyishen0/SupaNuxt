@@ -45,10 +45,7 @@
         </p>
 
         <!-- Options Section -->
-        <div
-          v-for="option in questionOptions"
-          :key="option.id"
-          class="space-y-2">
+        <div v-for="option in questionOptions" :key="option.id" class="mb-2">
           <OptionButton
             :optionId="option.id"
             :optionText="option.text"
