@@ -19,7 +19,7 @@
               </Label>
               <Select v-model="testType">
                 <SelectTrigger>
-                  <SelectValue :placeholder="testType || 'SAT'" />
+                  <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem
@@ -35,16 +35,18 @@
             <!-- Practice Test Selection -->
             <div class="space-y-2">
               <Label class="block text-sm font-medium">Practice Test*</Label>
-              <Select v-model="practiceTest">
+              <Select
+                v-model="practiceTest"
+                @update:modelValue="handleTestSelection">
                 <SelectTrigger>
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem
                     v-for="test in practiceTests"
-                    :key="test"
-                    :value="test">
-                    {{ test }}
+                    :key="test.practice_id"
+                    :value="String(test.practice_id)">
+                    {{ test.practice_name }}
                   </SelectItem>
                 </SelectContent>
               </Select>
@@ -166,19 +168,11 @@ const selectedBreaks = ref({
   needed: false,
 });
 
+// Add this instead
+const { practiceTests } = usePracticeTests(testType);
+
 // Constants
 const testTypes = ["SAT", "PSAT-Related Assessments"];
-const practiceTests = [
-  "SAT Practice 1",
-  "SAT Practice 2",
-  "SAT Practice 3",
-  "SAT Practice 4",
-  "SAT Practice 5",
-  "SAT Practice 6",
-  "SAT Essay Practice 1",
-  "SAT Essay Practice 2",
-  "SAT Essay Practice 3",
-];
 const breakOptions = [
   { id: "extra", label: "Extra Breaks" },
   { id: "extended", label: "Extended Breaks" },
@@ -196,5 +190,10 @@ const goBack = () => {
 };
 const goNext = () => {
   router.push("/practice");
+};
+
+// Method to log the selected test key
+const handleTestSelection = (newValue: string) => {
+  console.log("Selected test key:", newValue);
 };
 </script>
